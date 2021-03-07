@@ -10,7 +10,7 @@
     ],
     "outDir": "./dist",
     "alwaysStrict": true,
-    "declaration": true,
+    "declaration": true, // False for webpack
     "experimentalDecorators": true,
     "inlineSourceMap": true,
     "inlineSources": true,
