@@ -1,4 +1,7 @@
 {
+  "name": "@silver886/TypeScript",
+  "version": "0.0.0",
+  "description": "TypeScript template",
   "main": "./dist/index.js", // Use lib for npm package.
   "types": "./dist/index.d.ts", // Use lib for npm package.
   "scripts": {
@@ -11,11 +14,20 @@
     "prepare": "tsc",
     "prepublishOnly": "npm test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silver886/TypeScript.git"
+  },
+  "keywords": [],
   "author": {
     "name": "Leo Liu",
     "email": "karta1041337@gmail.com"
   },
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/silver886/TypeScript/issues"
+  },
+  "homepage": "https://github.com/silver886/TypeScript#readme",
   "devDependencies": {
     "@silver886/eslint-config": "^1.0.2",
     "@types/jest": "^26.0.23",
