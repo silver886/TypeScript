@@ -1,7 +1,7 @@
 module.exports = {
-    'env': {
-        'es2020': true,
-        'node': true,
+    env: {
+        es2020: true,
+        node:   true,
     },
     extends: [
         'eslint:recommended',
@@ -10,13 +10,13 @@ module.exports = {
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         '@silver886/eslint-config/typescript',
     ],
-    'parser': '@typescript-eslint/parser',
-    'parserOptions': {
-        'ecmaVersion': 12,
-        'sourceType': 'module',
-        project: '.eslintrc.tsconfig.json',
+    parser:        '@typescript-eslint/parser',
+    parserOptions: {
+        ecmaVersion: 12,
+        sourceType:  'module',
+        project:     '.eslintrc.tsconfig.json',
     },
-    'plugins': [
+    plugins: [
         '@typescript-eslint',
     ],
 };
