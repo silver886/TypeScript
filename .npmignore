@@ -4,6 +4,7 @@
 /*.config.*
 /.eslintrc.*
 /tsconfig.json
+/script
 /src
 /test
 /lib/src
