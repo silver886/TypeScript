@@ -1,9 +1,33 @@
 module.exports = {
-    testEnvironment: 'node',
-    roots: [
-        '<rootDir>/dist/test', // Use lib for npm package.
+    preset:            'ts-jest',
+    testEnvironment:   'node',
+    clearMocks:        true,
+    collectCoverage:   true,
+    coverageReporters: [
+        'json',
+        'lcov',
+        'clover',
+        'cobertura',
+        'text',
     ],
-    testMatch: [
-        '**/*.test.js',
+    coverageDirectory: 'coverage',
+    testRegex:         [
+        '(/src(/.*)?/__tests__/.*|/(test|src)(/.*)?(.*\\.|/)(test|spec))\\.[jt]sx?$',
+    ],
+    coveragePathIgnorePatterns: [
+        '/node_modules/',
+    ],
+    testPathIgnorePatterns: [
+        '/node_modules/',
+    ],
+    watchPathIgnorePatterns: [
+        '/node_modules/',
+    ],
+    reporters: [
+        'default', [
+            'jest-junit', {
+                outputDirectory: 'test-reports',
+            },
+        ],
     ],
 };

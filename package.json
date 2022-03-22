@@ -5,14 +5,12 @@
   "main": "./dist/index.js", // Use lib for npm package.
   "types": "./dist/index.d.ts", // Use lib for npm package.
   "scripts": {
-    "comments": "leasot --ignore node_modules/** .git/** --tags NOTE OPTIMIZE TODO HACK XXX FIXME BUG --filetype .ts **",
+    "comments": "leasot --ignore .git/**,node_modules/** --tags NOTE OPTIMIZE TODO HACK XXX FIXME BUG --filetype .ts **",
     "lint": "eslint .",
-    "watch-pretest": "npm run pretest -- --watch",
-    "watch-test": "npm test -- --watchAll",
-    "pretest": "tsc -p ./test/tsconfig.json",
+    "watch-test": "jest --coverage --watchAll",
     "test": "jest --coverage",
     "prepare": "tsc",
-    "prepublishOnly": "npm test"
+    "prepublishOnly": "pnpm test"
   },
   "repository": {
     "type": "git",
@@ -29,18 +27,23 @@
   },
   "homepage": "https://github.com/silver886/TypeScript#readme",
   "devDependencies": {
-    "@silver886/eslint-config": "^2.0.0",
-    "@types/jest": "^27.4.0",
-    "@types/node": "^14.18.3",
+    "@silver886/eslint-config": "^2.1.0",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^14.18.12",
     "@types/webpack": "^5.28.0",
-    "@typescript-eslint/eslint-plugin": "^5.8.1",
-    "@typescript-eslint/parser": "^5.8.1",
-    "eslint": "^8.5.0",
-    "jest": "^27.4.5",
-    "leasot": "^12.0.0",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.4",
-    "webpack": "^5.65.0",
-    "webpack-cli": "^4.9.1"
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "eslint": "^8.11.0",
+    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "jest": "^27.5.1",
+    "leasot": "^12.2.0",
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.7.0",
+    "tsconfig-paths": "^3.14.0",
+    "typescript": "^4.6.2",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   }
 }

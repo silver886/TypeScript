@@ -1,7 +1,10 @@
+/node_modules
 /lib
-**/dist
-**/coverage
-**/node_modules
+/dist
+/coverage
+/test-reports
 
 *.json
-*.config.*
+*.js
+!/.eslintrc.js
+!/jest.config.js

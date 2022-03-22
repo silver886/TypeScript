@@ -1,0 +1,11 @@
+{
+  "include": [
+    "./.eslintrc.js",
+    "./jest.config.js",
+    "./webpack.config.ts",
+    "./src",
+    "./test"
+  ],
+  "exclude": [],
+  "extends": "./tsconfig.json"
+}
