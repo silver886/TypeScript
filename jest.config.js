@@ -1,3 +1,4 @@
+/* eslint-disable import/no-commonjs, import/unambiguous */
 module.exports = {
     preset:            'ts-jest',
     testEnvironment:   'node',

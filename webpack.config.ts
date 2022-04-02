@@ -1,29 +1,30 @@
-import * as path from 'path';
+/* eslint-disable import/no-namespace, import/no-nodejs-modules */
+import {resolve} from 'path';
 import type * as webpack from 'webpack';
 
 export default {
-    mode: 'production',
-    entry: path.resolve('./src/index.ts'),
+    mode:   'production',
+    entry:  resolve('./src/index.ts'),
     output: {
-        path: path.resolve('./dist'),
+        path:     resolve('./dist'),
         filename: 'bundle.js',
     },
     module: {
         rules: [{
-            use: 'ts-loader',
+            use:     'ts-loader',
             exclude: /node_modules/u,
         }],
     },
     resolve: {
         modules: [
-            path.resolve('node_modules'),
-            path.resolve('../../../../lambda/jenkins'),
+            resolve('node_modules'),
+            resolve('../../../../lambda/jenkins'),
         ],
         preferRelative: true,
-        extensions: ['.ts', '.js'],
-        fallback: {
-            stream: false,
-            https: false,
+        extensions:     ['.ts', '.js'],
+        fallback:       {
+            stream:  false,
+            https:   false,
             process: false,
         },
     },
