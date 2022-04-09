@@ -3,7 +3,12 @@
         "**/node_modules/": true
     },
     "cSpell.words": [
+        "cobertura",
+        "lcov",
         "leasot",
-        "pnpm"
+        "openapi",
+        "pnpm",
+        "softprops",
+        "tsoa"
     ]
 }
