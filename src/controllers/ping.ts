@@ -10,6 +10,10 @@ import type {PingResponse} from '@@models/ping';
 export class PingController extends Controller {
     /**
      * Always response `echo` from body and IP address and PTR of server.
+     * 
+     * @example body {
+     *   "echo": "Hello from the outside"
+     * }
      */
     // eslint-disable-next-line class-methods-use-this
     @Example<PingResponse>({
