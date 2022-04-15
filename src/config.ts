@@ -5,9 +5,13 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export enum ExitCode {
-    SERVER_CLOSE = 0,
-    SIGINT_SERVER_NOT_CLOSE = 1,
+    SIGINT_SERVER_CLOSE = 2,
+    SIGINT_SERVER_CLOSE_FAIL = 3,
     CRASH = 255,
+}
+
+export enum HeaderName {
+    REQUEST_ID = 'X-Request-ID',
 }
 
 export const HOST = (env.HOST ?? '') || '127.0.0.1';

@@ -1,5 +1,7 @@
 /* eslint-disable new-cap */
-import {Controller, Get, Route, Tags} from '@tsoa/runtime';
+import {Controller, Get, Request, Route, Tags} from '@tsoa/runtime';
+import {CompositeRequest} from '@@models/common';
+import type {BasicResponse} from '@@models/common';
 
 @Route('health')
 @Tags('Health')
@@ -9,7 +11,10 @@ export class HealthController extends Controller {
      */
     // eslint-disable-next-line class-methods-use-this
     @Get('/')
-    public getHealth(): {status: 'ok'} {
-        return {status: 'ok'};
+    public getHealth(@Request() request: CompositeRequest): BasicResponse & {status: 'ok'} {
+        return {
+            requestId: request.id,
+            status:    'ok',
+        };
     }
 }
