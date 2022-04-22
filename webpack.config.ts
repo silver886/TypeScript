@@ -1,13 +1,18 @@
-/* eslint-disable import/no-namespace, import/no-nodejs-modules */
+/* eslint-disable import/no-nodejs-modules */
 import {resolve} from 'path';
-import type * as webpack from 'webpack';
+// eslint-disable-next-line import/default
+import CopyPlugin from 'copy-webpack-plugin';
+import {TsconfigPathsPlugin} from 'tsconfig-paths-webpack-plugin';
+import ZipPlugin from 'zip-webpack-plugin';
+import type {Configuration} from 'webpack';
 
 export default {
     mode:   'production',
     entry:  resolve('./src/index.ts'),
     output: {
-        path:     resolve('./dist'),
-        filename: 'bundle.js',
+        path:          resolve('./dist'),
+        filename:      'bundle.js',
+        libraryTarget: 'commonjs',
     },
     module: {
         rules: [{
@@ -16,16 +21,22 @@ export default {
         }],
     },
     resolve: {
-        modules: [
-            resolve('node_modules'),
-            resolve('../../../../lambda/jenkins'),
-        ],
-        preferRelative: true,
-        extensions:     ['.ts', '.js'],
-        fallback:       {
-            stream:  false,
-            https:   false,
-            process: false,
-        },
+        plugins:    [new TsconfigPathsPlugin()],
+        extensions: ['.ts', '.js'],
     },
-} as webpack.Configuration;
+    plugins: [
+        new CopyPlugin({
+            patterns: [
+                resolve('./node_modules/swagger-ui-dist'),
+            ],
+        }),
+        new ZipPlugin({
+            filename: 'bundle.zip',
+            include:  [
+                /bundle\.js(?:.*)?$/ui,
+                /swagger-ui(?:.*)?\.(?:js|css)$/ui,
+                /favicon(?:.*)?\.png$/ui,
+            ],
+        }),
+    ],
+} as Configuration;
