@@ -9,6 +9,7 @@
         "openapi",
         "pnpm",
         "softprops",
-        "tsoa"
+        "tsoa",
+        "vendia"
     ]
 }

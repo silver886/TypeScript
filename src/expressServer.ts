@@ -16,43 +16,43 @@ import swaggerUI from 'swagger-ui-express';
 import {HeaderName} from './config';
 import swagger from './openapi/swagger.json'; // eslint-disable-line import/extensions
 import {RegisterRoutes as registerRoutes} from './routes/routes';
-import type {NextFunction, Request, Response} from 'express';
+import type {Express, NextFunction, Request, Response} from 'express';
 import type {Server} from 'http';
 import type {JsonObject} from 'swagger-ui-express';
 
-export const APP = express();
-
 // eslint-disable-next-line max-statements
-export function expressServer(): Server {
-    APP.use(cors({
+export const APP = ((): Express => {
+    const app = express();
+
+    app.use(cors({
         credentials: true,
     }));
-    APP.use(bodyParser.json({
+    app.use(bodyParser.json({
         limit: '8MB',
     }));
-    APP.use(bodyParser.text());
-    APP.use(express.json());
-    APP.use(express.urlencoded({
+    app.use(bodyParser.text());
+    app.use(express.json());
+    app.use(express.urlencoded({
         extended: false,
     }));
-    APP.use(helmet());
-    APP.use(compression());
-    APP.use(cookieParser());
-    APP.use(requestId({
+    app.use(helmet());
+    app.use(compression());
+    app.use(cookieParser());
+    app.use(requestId({
         setHeader:  true,
         headerName: HeaderName.REQUEST_ID,
     }));
 
-    APP.use(express.static(getAbsoluteFSPath()));
+    app.use(express.static(getAbsoluteFSPath()));
 
     const routing = router();
     routing.use('/api-doc', swaggerUI.serve, swaggerUI.setup(swagger as JsonObject, {customCss: '.swagger-ui .curl-command {display:none;}'}));
     registerRoutes(routing);
 
-    APP.use('/', routing);
+    app.use('/', routing);
 
     // eslint-disable-next-line consistent-return, max-params, @typescript-eslint/no-invalid-void-type
-    APP.use((err: unknown, req: Request, res: Response, next: NextFunction): Response | void => {
+    app.use((err: unknown, req: Request, res: Response, next: NextFunction): Response | void => {
         if (err instanceof ValidateError) {
             // eslint-disable-next-line no-console
             console.error(`Caught Validation Error for ${req.path}:`, err);
@@ -82,6 +82,11 @@ export function expressServer(): Server {
         next();
     });
 
+    return app;
+})();
+
+// eslint-disable-next-line max-statements
+export function expressServer(): Server {
     const server = http.createServer(APP);
     return server;
 }
