@@ -19,7 +19,7 @@ module.exports = {
         'cobertura',
         'text',
     ],
-    coverageDirectory: 'coverage',
+    coverageDirectory: 'jest-reports/cobertura',
     testRegex:         [
         `${__dirname}(/src/(.*/)?__tests__/.*|/(test|src)/(.*/)?.*\\.(test|spec))\\.[jt]sx?$`,
     ],
@@ -31,5 +31,15 @@ module.exports = {
     ],
     watchPathIgnorePatterns: [
         '/node_modules/',
+    ],
+    reporters: [
+        'default', [
+            'jest-junit', {
+                outputDirectory: 'jest-reports/junit',
+            },
+        ],
+    ],
+    setupFilesAfterEnv: [
+        '<rootDir>/jest.setup.ts',
     ],
 };

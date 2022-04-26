@@ -1,8 +1,7 @@
 /node_modules
 /lib
 /dist
-/coverage
-/test-reports
+/jest-reports
 
 .env*
 **/*.ignore.*

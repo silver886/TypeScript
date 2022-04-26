@@ -2,14 +2,15 @@
   "name": "@silver886/TypeScript",
   "version": "0.0.0",
   "description": "TypeScript template",
-  "main": "./dist/index.js", // Use `lib` for npm package.
-  "types": "./dist/index.d.ts", // Use `lib` for npm package.
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "comments": "leasot --ignore .git/**,node_modules/** --tags NOTE OPTIMIZE TODO HACK XXX FIXME BUG --filetype .ts **",
     "lint": "eslint .",
     "watch-test": "jest --coverage --watchAll",
     "test": "jest --coverage",
     "build": "tsoa spec-and-routes && tsc",
+    "bundle": "tsoa spec-and-routes && webpack",
     "start": "node dist/index.js",
     "dev-start": "tsoa spec-and-routes && ts-node src/index.ts",
     "prepare": "tsc",
@@ -51,6 +52,7 @@
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
     "jest": "^27.5.1",
+    "jest-junit": "^13.2.0",
     "leasot": "^13.1.0",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
