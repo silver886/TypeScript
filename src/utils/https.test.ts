@@ -20,7 +20,7 @@ describe('get', () => {
 
         // THEN
         await expect(get(service, `/status/${status}`)).
-            rejects.toThrowError(`Status Code: ${status}`);
+            rejects.toThrowError(status);
     });
 
     it('400', async () => {
@@ -29,7 +29,7 @@ describe('get', () => {
 
         // THEN
         await expect(get(service, `/status/${status}`)).
-            rejects.toThrowError(`Status Code: ${status}`);
+            rejects.toThrowError(status);
     });
 
     it('500', async () => {
@@ -38,6 +38,6 @@ describe('get', () => {
 
         // THEN
         await expect(get(service, `/status/${status}`)).
-            rejects.toThrowError(`Status Code: ${status}`);
+            rejects.toThrowError(status);
     });
 });
