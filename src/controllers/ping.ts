@@ -32,7 +32,7 @@ export class PingController extends Controller {
         message:   'Internal Server Error',
     })
     @Post('/')
-    public async ping(
+    public async postPing(
         @Request() request: CompositeRequest,
             @Body() body: PingRequestBody,
             @Query() ip?: 'v4' | 'v6',
@@ -45,7 +45,7 @@ export class PingController extends Controller {
         } catch (err) {
             throw new ErrorContext(err instanceof Error ? err : new Error(err as string), {
                 requestId: request.id,
-                source:    `[ping] (${__filename})`,
+                source:    `[postPing] (${__filename})`,
                 request,
                 body,
                 ip,
