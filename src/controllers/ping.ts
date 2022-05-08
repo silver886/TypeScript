@@ -1,4 +1,5 @@
 /* eslint-disable new-cap */
+import {ErrorContext} from '@silver886/error-context';
 import {Body, Controller, Example, Post, Query, Request, Response, Route, Tags} from '@tsoa/runtime';
 import {StatusCodes} from 'http-status-codes';
 import {CompositeRequest} from '@@models/common';
@@ -36,6 +37,19 @@ export class PingController extends Controller {
             @Body() body: PingRequestBody,
             @Query() ip?: 'v4' | 'v6',
     ): Promise<BasicResponse & PingResponse> {
-        return ping(request, body, ip);
+        try {
+            return {
+                ...await ping(body, ip),
+                requestId: request.id,
+            };
+        } catch (err) {
+            throw new ErrorContext(err instanceof Error ? err : new Error(err as string), {
+                requestId: request.id,
+                source:    `[ping] (${__filename})`,
+                request,
+                body,
+                ip,
+            });
+        }
     }
 }
