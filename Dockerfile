@@ -1,18 +1,13 @@
 ###########################################################################
 # Build development base image
 ###########################################################################
-FROM node:14-alpine AS dev-base
+FROM node:16-alpine AS dev-base
 
-COPY . /var/workdir
+COPY . /var/workdir/
 
-WORKDIR /var/workdir
+WORKDIR /var/workdir/
 
-RUN apk add --no-cache --virtual .network-fetch \
-    curl
-
-RUN curl -f https://get.pnpm.io/v6.js | node - add --global pnpm@6
-
-RUN apk del .network-fetch
+RUN wget -O- https://get.pnpm.io/v6.14.js | node - add --global pnpm@6
 
 RUN pnpm install --frozen-lockfile
 
@@ -21,7 +16,6 @@ RUN pnpm install --frozen-lockfile
 ###########################################################################
 FROM dev-base AS dev-linter
 
-WORKDIR /var/workdir
 RUN pnpm lint
 
 ###########################################################################
@@ -29,7 +23,6 @@ RUN pnpm lint
 ###########################################################################
 FROM dev-base AS dev-test
 
-WORKDIR /var/workdir
 RUN pnpm test
 
 ###########################################################################
@@ -37,5 +30,4 @@ RUN pnpm test
 ###########################################################################
 FROM dev-base
 
-WORKDIR /var/workdir
 RUN pnpm bundle
