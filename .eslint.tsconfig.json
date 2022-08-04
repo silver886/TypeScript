@@ -2,6 +2,7 @@
   "include": [
     "./.eslintrc.js",
     "./jest.config.js",
+    "./jest.setup.ts",
     "./webpack.config.ts",
     "./src",
     "./test"
