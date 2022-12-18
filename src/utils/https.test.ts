@@ -2,42 +2,46 @@
 import {get} from './https';
 
 describe('get', () => {
-    // GIVEN
-    const service = 'httpbin.org';
+   // GIVEN
+   const service = 'httpbin.org';
 
-    it('200', async () => {
-        // WHEN
-        const status = '200';
+   it('200', async () => {
+      // WHEN
+      const status = '200';
 
-        // THEN
-        await expect(get(service, `/status/${status}`)).
-            resolves.toStrictEqual('');
-    });
+      // THEN
+      await expect(get(service, `/status/${status}`)).resolves.toStrictEqual(
+         '',
+      );
+   });
 
-    it('300', async () => {
-        // WHEN
-        const status = '300';
+   it('300', async () => {
+      // WHEN
+      const status = '300';
 
-        // THEN
-        await expect(get(service, `/status/${status}`)).
-            rejects.toThrowError(status);
-    });
+      // THEN
+      await expect(get(service, `/status/${status}`)).rejects.toThrowError(
+         status,
+      );
+   });
 
-    it('400', async () => {
-        // WHEN
-        const status = '400';
+   it('400', async () => {
+      // WHEN
+      const status = '400';
 
-        // THEN
-        await expect(get(service, `/status/${status}`)).
-            rejects.toThrowError(status);
-    });
+      // THEN
+      await expect(get(service, `/status/${status}`)).rejects.toThrowError(
+         status,
+      );
+   });
 
-    it('500', async () => {
-        // WHEN
-        const status = '500';
+   it('500', async () => {
+      // WHEN
+      const status = '500';
 
-        // THEN
-        await expect(get(service, `/status/${status}`)).
-            rejects.toThrowError(status);
-    });
+      // THEN
+      await expect(get(service, `/status/${status}`)).rejects.toThrowError(
+         status,
+      );
+   });
 });

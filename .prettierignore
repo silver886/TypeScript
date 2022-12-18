@@ -1,0 +1,10 @@
+/.*/*
+/pnpm-lock.yaml
+/node_modules
+/lib
+/dist
+/test-reports
+
+*.js
+!/.eslintrc.js
+!/jest.config.js
