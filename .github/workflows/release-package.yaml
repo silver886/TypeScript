@@ -24,16 +24,16 @@ jobs:
           node-version: 16
           check-latest: true
       - name: Cache pnpm modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-
       - name: Clean install dependencies
-        uses: pnpm/action-setup@v2.2.1
+        uses: pnpm/action-setup@v2
         with:
-          version: 6
+          version: 7
           run_install: |
             args: [--frozen-lockfile]
       - name: Test
@@ -55,16 +55,16 @@ jobs:
           node-version: 16
           check-latest: true
       - name: Cache pnpm modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-
       - name: Clean install dependencies
-        uses: pnpm/action-setup@v2.2.1
+        uses: pnpm/action-setup@v2
         with:
-          version: 6
+          version: 7
           run_install: |
             args: [--frozen-lockfile]
       - name: Setup Node.js environment
@@ -92,16 +92,16 @@ jobs:
           node-version: 16
           check-latest: true
       - name: Cache pnpm modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-
       - name: Clean install dependencies
-        uses: pnpm/action-setup@v2.2.1
+        uses: pnpm/action-setup@v2
         with:
-          version: 6
+          version: 7
           run_install: |
             args: [--frozen-lockfile]
       - name: Setup Node.js environment
