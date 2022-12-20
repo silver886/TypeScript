@@ -57,6 +57,7 @@
       "jest-junit": "^13.2.0",
       "leasot": "^13.1.0",
       "prettier": "^2.8.1",
+      "prettier-plugin-multiline-arrays": "^1.1.2",
       "ts-jest": "^27.1.4",
       "ts-node": "^10.7.0",
       "tsconfig-paths": "^3.14.1",

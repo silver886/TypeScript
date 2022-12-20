@@ -1,7 +1,9 @@
 {
    "entryFile": "src/index.ts",
    "noImplicitAdditionalProperties": "silently-remove-extras",
-   "controllerPathGlobs": ["src/controllers/**/*.ts"],
+   "controllerPathGlobs": [
+      "src/controllers/**/*.ts"
+   ],
    "routes": {
       "routesDir": "src/routes",
       "middleware": "express"
@@ -20,12 +22,24 @@
    "compilerOptions": {
       "baseUrl": ".",
       "paths": {
-         "@@src/*": ["src/*"],
-         "@@models/*": ["src/models/*"],
-         "@@controllers/*": ["src/controllers/*"],
-         "@@services/*": ["src/services/*"],
-         "@@apis/*": ["src/apis/*"],
-         "@@utils/*": ["src/utils/*"]
+         "@@src/*": [
+            "src/*"
+         ],
+         "@@models/*": [
+            "src/models/*"
+         ],
+         "@@controllers/*": [
+            "src/controllers/*"
+         ],
+         "@@services/*": [
+            "src/services/*"
+         ],
+         "@@apis/*": [
+            "src/apis/*"
+         ],
+         "@@utils/*": [
+            "src/utils/*"
+         ]
       }
    }
 }

@@ -39,6 +39,7 @@ specifiers:
   jest-junit: ^13.2.0
   leasot: ^13.1.0
   prettier: ^2.8.1
+  prettier-plugin-multiline-arrays: ^1.1.2
   swagger-ui-dist: ^4.11.0
   swagger-ui-express: ^4.3.0
   ts-jest: ^27.1.4
@@ -94,6 +95,7 @@ devDependencies:
   jest-junit: 13.2.0
   leasot: 13.1.0
   prettier: 2.8.1
+  prettier-plugin-multiline-arrays: 1.1.2
   ts-jest: 27.1.4_ibhx3ehxrt2kgmkik4bkzmyeei
   ts-node: 10.7.0_vlhkfywowlxnwva2xlo6hhl6wq
   tsconfig-paths: 3.14.1
@@ -111,6 +113,12 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       '@jridgewell/trace-mapping': 0.3.4
+    dev: true
+
+  /@augment-vir/common/6.1.6:
+    resolution: {integrity: sha512-jFK6EKycyfI3gnkLyZ4FxDzPbysUWDqT1IfHatCFbJI/wd4XmvQx/SdxpmBklchdeP0Q2+GIdtsqYIvWpcN1xw==}
+    dependencies:
+      type-fest: 3.4.0
     dev: true
 
   /@babel/code-frame/7.16.7:
@@ -548,7 +556,7 @@ packages:
       jest-util: 27.5.1
       jest-validate: 27.5.1
       jest-watcher: 27.5.1
-      micromatch: 4.0.4
+      micromatch: 4.0.5
       rimraf: 3.0.2
       slash: 3.0.0
       strip-ansi: 6.0.1
@@ -4047,14 +4055,6 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /micromatch/4.0.4:
-    resolution: {integrity: sha512-pRmzw/XUcwXGpD9aI9q/0XOwLNygjETJ8y0ao0wdqprrzDa4YnxLcz7fQRZr8voh8V10kGhABbNcHVk5wHgWwg==}
-    engines: {node: '>=8.6'}
-    dependencies:
-      braces: 3.0.2
-      picomatch: 2.3.1
-    dev: true
-
   /micromatch/4.0.5:
     resolution: {integrity: sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==}
     engines: {node: '>=8.6'}
@@ -4383,6 +4383,12 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       fast-diff: 1.2.0
+    dev: true
+
+  /prettier-plugin-multiline-arrays/1.1.2:
+    resolution: {integrity: sha512-5gp7cMvwdUJB10dPU5DuYkWmqNluvtxft68Nc2D3+Q7+B2VB1eHx4UnfiILU/8heZCIH2RMvfHefg4N599LrLg==}
+    dependencies:
+      '@augment-vir/common': 6.1.6
     dev: true
 
   /prettier/2.8.1:
@@ -5119,6 +5125,11 @@ packages:
   /type-fest/0.21.3:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
+    dev: true
+
+  /type-fest/3.4.0:
+    resolution: {integrity: sha512-PEPg6RHlB9cFwoTMNENNrQFL0cXX04voWr2UPwQBJ3pVs7Mt8Y1oLWdUeMdGEwZE8HFFlujq8gS9enmyiQ8pLg==}
+    engines: {node: '>=14.16'}
     dev: true
 
   /type-is/1.6.18:
