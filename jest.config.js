@@ -1,8 +1,6 @@
 /* eslint-disable import/no-commonjs, import/unambiguous */
-// eslint-disable-next-line max-len
 // eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
 const {pathsToModuleNameMapper} = require('ts-jest');
-// eslint-disable-next-line max-len
 // eslint-disable-next-line import/extensions, @typescript-eslint/naming-convention, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
 const {compilerOptions} = require('./tsconfig.json');
 
@@ -14,14 +12,26 @@ module.exports = {
    testEnvironment: 'node',
    clearMocks: true,
    collectCoverage: true,
-   coverageReporters: ['json', 'lcov', 'clover', 'cobertura', 'text'],
+   coverageReporters: [
+      'json',
+      'lcov',
+      'clover',
+      'cobertura',
+      'text',
+   ],
    coverageDirectory: 'jest-reports/cobertura',
    testRegex: [
       `${__dirname}(/src/(.*/)?__tests__/.*|/(test|src)/(.*/)?.*\\.(test|spec))\\.[jt]sx?$`,
    ],
-   coveragePathIgnorePatterns: ['/node_modules/'],
-   testPathIgnorePatterns: ['/node_modules/'],
-   watchPathIgnorePatterns: ['/node_modules/'],
+   coveragePathIgnorePatterns: [
+      '/node_modules/',
+   ],
+   testPathIgnorePatterns: [
+      '/node_modules/',
+   ],
+   watchPathIgnorePatterns: [
+      '/node_modules/',
+   ],
    reporters: [
       'default',
       [
@@ -32,5 +42,7 @@ module.exports = {
          },
       ],
    ],
-   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+   setupFilesAfterEnv: [
+      '<rootDir>/jest.setup.ts',
+   ],
 };

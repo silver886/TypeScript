@@ -3,8 +3,12 @@
 /node_modules
 /lib
 /dist
-/test-reports
+/jest-reports
 
 *.js
 !/.eslintrc.js
 !/jest.config.js
+
+# tsoa
+/src/openapi
+/src/routes

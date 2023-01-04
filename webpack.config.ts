@@ -23,12 +23,19 @@ export default {
       ],
    },
    resolve: {
-      plugins: [new TsconfigPathsPlugin()],
-      extensions: ['.ts', '.js'],
+      plugins: [
+         new TsconfigPathsPlugin(),
+      ],
+      extensions: [
+         '.ts',
+         '.js',
+      ],
    },
    plugins: [
       new CopyPlugin({
-         patterns: [resolve('./node_modules/swagger-ui-dist')],
+         patterns: [
+            resolve('./node_modules/swagger-ui-dist'),
+         ],
       }),
       new ZipPlugin({
          filename: 'bundle.zip',

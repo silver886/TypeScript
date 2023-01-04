@@ -1,5 +1,4 @@
-/* eslint-disable import/no-nodejs-modules */
-/* eslint-disable import/max-dependencies */
+/* eslint-disable import/no-nodejs-modules, import/max-dependencies */
 import http from 'http';
 import {ErrorContext} from '@silver886/error-context';
 import {ValidateError} from '@tsoa/runtime';
@@ -20,7 +19,7 @@ import type {Express, NextFunction, Request, Response} from 'express';
 import type {Server} from 'http';
 import type {JsonObject} from 'swagger-ui-express';
 
-// eslint-disable-next-line max-statements
+// eslint-disable-next-line max-statements, max-lines-per-function
 export const APP = ((): Express => {
    const app = express();
 
@@ -65,13 +64,13 @@ export const APP = ((): Express => {
 
    app.use('/', routing);
 
-   // eslint-disable-next-line consistent-return, max-params, @typescript-eslint/no-invalid-void-type
    app.use(
       (
          err: unknown,
          req: Request,
          res: Response,
          next: NextFunction,
+         // eslint-disable-next-line @typescript-eslint/no-invalid-void-type, max-params, consistent-return
       ): Response | void => {
          if (err instanceof ValidateError) {
             // eslint-disable-next-line no-console

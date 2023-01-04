@@ -15,5 +15,17 @@
    "plugins": [
       "prettier-plugin-multiline-arrays"
    ],
-   "multilineArraysWrapThreshold": 0
+   "multilineArraysWrapThreshold": 0,
+   "overrides": [
+      {
+         "files": [
+            "*.yaml",
+            "*.yml",
+            "*.md"
+         ],
+         "options": {
+            "tabWidth": 2
+         }
+      }
+   ]
 }
