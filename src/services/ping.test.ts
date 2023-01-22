@@ -8,9 +8,6 @@ describe('ping', () => {
    const body: PingRequestBody = {
       echo: '2f550529-302b-44e3-85d4-cd8832ede082',
    };
-   jest
-      .spyOn(icanhaz, 'getPtr')
-      .mockImplementation(async () => Promise.resolve('1.1.1.1.in-addr.arpa'));
 
    it('auto IP', async () => {
       // WHEN
@@ -23,12 +20,10 @@ describe('ping', () => {
          echo: '2f550529-302b-44e3-85d4-cd8832ede082',
          server: {
             ip: '1.1.1.1',
-            ptr: '1.1.1.1.in-addr.arpa',
          },
       });
       // eslint-disable-next-line no-undefined
       expect(icanhaz.getIp).toHaveBeenLastCalledWith(undefined);
-      expect(icanhaz.getPtr).toHaveBeenLastCalledWith();
    });
 
    it('IPv4', async () => {
@@ -43,11 +38,9 @@ describe('ping', () => {
          echo: '2f550529-302b-44e3-85d4-cd8832ede082',
          server: {
             ip: '1.1.1.1',
-            ptr: '1.1.1.1.in-addr.arpa',
          },
       });
       expect(icanhaz.getIp).toHaveBeenLastCalledWith('v4');
-      expect(icanhaz.getPtr).toHaveBeenLastCalledWith();
    });
 
    // WHEN
@@ -65,10 +58,8 @@ describe('ping', () => {
          echo: '2f550529-302b-44e3-85d4-cd8832ede082',
          server: {
             ip: '2606:4700:4700::1111',
-            ptr: '1.1.1.1.in-addr.arpa',
          },
       });
       expect(icanhaz.getIp).toHaveBeenLastCalledWith('v6');
-      expect(icanhaz.getPtr).toHaveBeenLastCalledWith();
    });
 });
