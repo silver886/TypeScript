@@ -1,5 +1,5 @@
 import {ErrorContext} from '@silver886/error-context';
-import {getIp, getPtr} from '@@apis/icanhaz';
+import {getIp} from '@@apis/icanhaz';
 import type {PingRequestBody, PingResponse} from '@@models/ping';
 
 export async function ping(
@@ -8,12 +8,10 @@ export async function ping(
 ): Promise<PingResponse> {
    try {
       const gotIp = await getIp(ip);
-      const gotPtr = await getPtr();
       return {
          echo: body.echo,
          server: {
             ip: gotIp,
-            ptr: gotPtr,
          },
       };
    } catch (err) {

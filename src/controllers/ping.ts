@@ -30,18 +30,17 @@ export class PingController extends Controller {
     */
    // eslint-disable-next-line class-methods-use-this
    @Example<BasicResponse & PingResponse>({
-      requestId: '9476a191-43a1-4459-8743-dc4b4d267680',
+      requestId: 'y29m5cwv2ev1x7janp0jtb83',
       echo: 'Hello from the outside',
       server: {
          ip: '1.1.1.1',
-         ptr: '1.1.1.1.in-addr.arpa',
       },
    })
    @Response<BasicResponse & {message: string}>(
       StatusCodes.INTERNAL_SERVER_ERROR,
       'Internal Server Error',
       {
-         requestId: '00bae0e1-b6b9-44a3-a132-401c9e3a83d3',
+         requestId: 'cfs9gas6gxymjfuwmmvpf8f7',
          message: 'Internal Server Error',
       },
    )

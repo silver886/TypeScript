@@ -25,10 +25,5 @@ export interface PingResponse {
        * IP address.
        */
       readonly ip: string;
-
-      /**
-       * PTR record of the IP address.
-       */
-      readonly ptr: string;
    };
 }
