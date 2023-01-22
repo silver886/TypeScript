@@ -1,0 +1,184 @@
+'$schema' = 'https://starship.rs/config-schema.json'
+
+format = """ \
+[(${shell} )](bold dimmed white)\
+[(${memory_usage} )](bold dimmed white)\
+[${jobs}](bold dimmed white)\
+${fill}\
+[(${cmd_duration} )](bold dimmed #198664)\
+[(${time} )](bold dimmed #198664)\
+
+\n \
+[(${nodejs} )](bold dimmed #6CA35E)\
+[(${package} )](bold dimmed yellow)\
+${fill}\
+[(${status} )](bold dimmed #198664)\
+
+\n  \
+[(${directory} )](bold dimmed white)\
+${fill}\
+([(${git_state} )(${git_metrics} )${git_status}(${git_branch} )(${git_commit} ) ](bold dimmed #F05134))\
+
+\n${character}"""
+
+scan_timeout = 10
+command_timeout = 500
+add_newline = true
+
+[line_break]
+disabled = true
+
+[fill]
+disabled = false
+symbol = ' '
+
+[shell]
+disabled = false
+bash_indicator = 'bash'
+fish_indicator = 'fish'
+zsh_indicator = 'zsh'
+powershell_indicator = 'powershell'
+ion_indicator = 'ion'
+elvish_indicator = 'elvish'
+tcsh_indicator = 'tcsh'
+xonsh_indicator = 'xonsh'
+cmd_indicator = 'cmd'
+nu_indicator = 'nu'
+unknown_indicator = 'unknown'
+style = 'bold white'
+format = ' [$indicator]($style)'
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = ''
+style = 'bold white'
+format = '$symbol [${ram}( | ${swap})]($style)'
+
+[jobs]
+disabled = false
+threshold = 1
+symbol_threshold = 1
+number_threshold = 2
+symbol = ''
+style = 'bold purple'
+format = '$symbol [$number]($style)'
+
+[cmd_duration]
+disabled = false
+min_time = 0
+show_milliseconds = true
+show_notifications = true
+min_time_to_notify = 30_000
+notification_timeout = 1_000
+style = 'bold dimmed white'
+format = '[$duration]($style)'
+
+[time]
+disabled = false
+utc_time_offset = 'local'
+use_12hr = false
+time_format = '%Y-%m-%dT%H:%M:%S%.3f%:z'
+style = 'bold dimmed white'
+format = '[$time]($style)'
+
+[nodejs]
+disabled = false
+version_format = '${raw}'
+symbol = ''
+style = 'bold white'
+not_capable_style = 'bold red'
+format = '$symbol[( $version)]($style)'
+
+[package]
+disabled = false
+display_private = true
+version_format = '${raw}'
+symbol = ''
+style = 'bold white'
+format = '$symbol[( $version)]($style)'
+
+[status]
+disabled = false
+map_symbol = true
+recognize_signal_code = true
+not_executable_symbol = ''
+not_found_symbol = ''
+sigint_symbol = ''
+signal_symbol = ''
+symbol = ''
+success_symbol = ''
+style = 'bold white'
+format = '[$status( $common_meaning)( $signal_name(\($signal_number\)))( \($hex_status\))]($style)$symbol'
+pipestatus = true
+pipestatus_separator = ' | '
+pipestatus_segment_format = '$status( $common_meaning)( $signal_name(\($signal_number\)))( \($hex_status\))$symbol'
+pipestatus_format = '\[ $pipestatus \]  [$status( $common_meaning)( $signal_name(\($signal_number\)))( \($hex_status\))]($style)$symbol'
+
+[directory]
+disabled = false
+home_symbol = '~'
+use_os_path_sep = true
+truncation_length = 0
+truncate_to_repo = true
+truncation_symbol = '…/'
+read_only = ''
+read_only_style = 'bold red'
+style = 'bold cyan'
+format = '[($read_only )]($read_only_style)[$path]($style)'
+repo_root_style = 'bold purple'
+repo_root_format = '[($read_only )]($read_only_style)[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)'
+[directory.substitutions]
+# 'C:/Users/liuleo/Fork' = 'fork'
+# '~/Fork/leo-liu' = 'my repo'
+# 'Downloads/HPSS-1.12' = 'asdf'
+
+[git_state]
+disabled = false
+style = 'bold blue'
+format = '[$state($progress_current/$progress_total)]($style)'
+
+[git_metrics]
+disabled = false
+only_nonzero_diffs = false
+added_style = 'bold green'
+deleted_style = 'bold red'
+format = '[+$added]($added_style) [-$deleted]($deleted_style)'
+
+[git_status]
+disabled = false
+ignore_submodules = false
+stashed = '#$count'
+staged = '+$count'
+renamed = '=$count'
+conflicted = '!$count'
+modified = '~$count'
+untracked = '?$count'
+deleted = '-$count'
+ahead = '⇡$count'
+behind = '⇣$count'
+diverged = '⇕\(⇡$ahead_count⇣$behind_count\)'
+style = 'bold yellow'
+format = '[($stashed )($staged )($renamed )($conflicted )($modified )($untracked )($deleted )($ahead_behind )]($style)'
+
+[git_branch]
+disabled = false
+always_show_remote = true
+only_attached = false
+symbol = ''
+style = 'bold cyan'
+format = '[$symbol $branch(:$remote_name/$remote_branch)]($style)'
+
+[git_commit]
+disabled = false
+only_detached = false
+commit_hash_length = 7
+tag_disabled = false
+tag_symbol = ''
+style = 'bold purple'
+format = '[( $tag )$hash]($style)'
+
+[character]
+disabled = false
+success_symbol = '[](bold green)'
+error_symbol = '[](bold red)'

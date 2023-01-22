@@ -1,0 +1,48 @@
+{
+   "name": "TypeScript",
+   "build": {
+      "dockerfile": "Dockerfile"
+   },
+
+   "features": {
+      "ghcr.io/NicoVIII/devcontainer-features/pnpm:2": {
+         "version": "latest"
+      },
+      "ghcr.io/devcontainers/features/docker-in-docker:2": {
+         "version": "latest",
+         "moby": true
+      },
+      "ghcr.io/eitsupi/devcontainer-features/jq-likes:1": {
+         "jqVersion": "os-provided",
+         "yqVersion": "none",
+         "gojqVersion": "none"
+      },
+      "ghcr.io/devcontainers/features/github-cli:1": {
+         "version": "latest",
+         "installDirectlyFromGitHubRelease": true
+      }
+   },
+   "overrideFeatureInstallOrder": [
+      "ghcr.io/NicoVIII/devcontainer-features/pnpm:2",
+      "ghcr.io/devcontainers/features/docker-in-docker:2",
+      "ghcr.io/eitsupi/devcontainer-features/jq-likes:1",
+      "ghcr.io/devcontainers/features/github-cli:1"
+   ],
+
+   "customizations": {
+      "vscode": {
+         "extensions": [
+            "streetsidesoftware.code-spell-checker",
+            "tyriar.sort-lines",
+            "esbenp.prettier-vscode",
+            "dbaeumer.vscode-eslint",
+            "eamodio.gitlens",
+            "ms-azuretools.vscode-docker",
+            "ms-vsliveshare.vsliveshare"
+         ]
+      }
+   },
+
+   "postCreateCommand": "pnpm install --frozen-lockfile",
+   "waitFor": "postCreateCommand"
+}

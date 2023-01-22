@@ -1,6 +1,7 @@
 **/dist
 **/lambda/**/lib
 **/node_modules
+**/.pnpm-store
 **/jest-reports
 
 .env*
