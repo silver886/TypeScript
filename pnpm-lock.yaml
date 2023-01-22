@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@paralleldrive/cuid2': ^2.0.0
   '@silver886/error-context': ^0.0.2
-  '@silver886/eslint-config': ^2.2.3
+  '@silver886/eslint-config': ^2.2.4
   '@tsoa/cli': ^5.0.0
   '@tsoa/runtime': ^5.0.0
   '@types/body-parser': ^1.19.2
@@ -68,7 +68,7 @@ dependencies:
   swagger-ui-express: 4.6.0_express@4.18.2
 
 devDependencies:
-  '@silver886/eslint-config': 2.2.3_c7xvbkvepicgafr6mzlaq5gvg4
+  '@silver886/eslint-config': 2.2.4_c7xvbkvepicgafr6mzlaq5gvg4
   '@tsoa/cli': 5.0.0
   '@types/body-parser': 1.19.2
   '@types/compression': 1.7.2
@@ -822,14 +822,14 @@ packages:
     resolution: {integrity: sha512-1eUZTHfi+nlWWBCkfjB6Wip6BiyC6yBbOusq2J7uNkhEzDpe/x10/v2BfUJG4yKKzgOfz7of0aFnxL1fwWOK2A==}
     dev: false
 
-  /@silver886/eslint-config/2.2.3_c7xvbkvepicgafr6mzlaq5gvg4:
-    resolution: {integrity: sha512-yQ0npSp+8a2lhPDmAT9iPYnP3jskLLuzWtmH7ZkZvHq49py34nj1xtRCksVE/GfhlcBmSnE2sX8b4nLawd7wCg==}
+  /@silver886/eslint-config/2.2.4_c7xvbkvepicgafr6mzlaq5gvg4:
+    resolution: {integrity: sha512-U+LzOg/vNFoCGCnCLqSMD7pUFsd98TIpHs7blii1DZ3wfrbkshimTh+btfSYE+FCN1vpH40IkKBbRYPaZVkKrw==}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^5
-      '@typescript-eslint/parser': ^5.14.0
+      '@typescript-eslint/parser': ^5
       eslint: ^8
-      eslint-import-resolver-node: ^0.3.6
-      eslint-import-resolver-typescript: ^2
+      eslint-import-resolver-node: ^0.3
+      eslint-import-resolver-typescript: ^3
       eslint-plugin-import: ^2
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.48.2_caon6io6stgpr7lz2rtbhekxqy
