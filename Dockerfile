@@ -1,33 +1,34 @@
 ###########################################################################
-# Build development base image
+# Build base image
 ###########################################################################
-FROM node:16-alpine AS dev-base
+FROM node:18-alpine AS base
 
 COPY . /var/workdir/
 
 WORKDIR /var/workdir/
 
-RUN wget -O- https://get.pnpm.io/v6.14.js | node - add --global pnpm@6
+RUN wget -qO /usr/local/bin/pnpm 'https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64' \
+    && chmod +x /usr/local/bin/pnpm
 
 RUN pnpm install --frozen-lockfile
 
 ###########################################################################
 # Build linter image
 ###########################################################################
-FROM dev-base AS dev-linter
+FROM base AS linter
 
 RUN pnpm lint
 
 ###########################################################################
 # Build unit test image
 ###########################################################################
-FROM dev-base AS dev-test
+FROM base AS test
 
 RUN pnpm test
 
 ###########################################################################
 # Build bundle image
 ###########################################################################
-FROM dev-base
+FROM base
 
 RUN pnpm bundle
