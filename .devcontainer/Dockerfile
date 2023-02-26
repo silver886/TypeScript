@@ -36,7 +36,7 @@ RUN apt-get -y install --no-install-recommends \
     && ln -s /usr/bin/batcat /usr/local/bin/bat
 
 # Overlay
-COPY overlay /
+COPY overlay/ /
 
 # Clean up
 RUN rm -rf /var/lib/apt/lists/*

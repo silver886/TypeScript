@@ -3,6 +3,9 @@
    "build": {
       "dockerfile": "Dockerfile"
    },
+   "containerEnv": {
+      "PNPM_HOME": "/usr/local/bin"
+   },
 
    "features": {
       "ghcr.io/NicoVIII/devcontainer-features/pnpm:2": {
@@ -43,6 +46,6 @@
       }
    },
 
-   "postCreateCommand": "pnpm install --frozen-lockfile",
+   "postCreateCommand": "cp .npmrc /usr/local/etc/npmrc && pnpm install --frozen-lockfile",
    "waitFor": "postCreateCommand"
 }

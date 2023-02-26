@@ -3,12 +3,14 @@
 ###########################################################################
 FROM node:18-alpine AS base
 
-COPY . /var/workdir/
+COPY ./ /var/workdir/
+COPY .npmrc /usr/local/etc/npmrc
 
 WORKDIR /var/workdir/
 
-RUN wget -qO /usr/local/bin/pnpm 'https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64' \
-    && chmod +x /usr/local/bin/pnpm
+ENV PNPM_VERSION=7.27.1
+ENV PNPM_HOME=/usr/local/bin
+RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$(mktemp)" SHELL="$(which sh)" sh -
 
 RUN pnpm install --frozen-lockfile
 
