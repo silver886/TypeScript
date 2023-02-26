@@ -8,7 +8,7 @@ COPY .npmrc /usr/local/etc/npmrc
 
 WORKDIR /var/workdir/
 
-ENV PNPM_VERSION=7.27.1
+ENV PNPM_VERSION=7.28.0
 ENV PNPM_HOME=/usr/local/bin
 RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$(mktemp)" SHELL="$(which sh)" sh -
 
