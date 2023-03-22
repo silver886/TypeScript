@@ -10,7 +10,7 @@ WORKDIR /var/workdir/
 
 ENV PNPM_VERSION=7.28.0
 ENV PNPM_HOME=/usr/local/bin
-RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$(mktemp)" SHELL="$(which sh)" sh -
+RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$(mktemp)" SHELL="$(which sh)" sh -s --
 
 RUN pnpm install --frozen-lockfile
 
