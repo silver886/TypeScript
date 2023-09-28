@@ -8,7 +8,7 @@
       ],
       "outDir": "./dist", // Use `lib` for npm package.
       "alwaysStrict": true,
-      "declaration": true, // Use `false` for webpack.
+      "declaration": true,
       "experimentalDecorators": true,
       "inlineSourceMap": true,
       "inlineSources": true,
@@ -39,6 +39,9 @@
       }
    },
    "ts-node": {
+      "moduleTypes": {
+         "*.ts": "esm"
+      },
       "require": ["tsconfig-paths/register"]
    },
    "include": ["./src"]

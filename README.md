@@ -7,7 +7,7 @@ This is Typescript template.
 - Dockerfile
 - GitHub Actions
 - jest
-- webpack
+- esbuild
 - express
 - tsoa
 

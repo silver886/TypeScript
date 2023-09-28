@@ -1,9 +1,9 @@
 {
    "include": [
       "./.eslintrc.js",
+      "./esbuild.config.ts",
       "./jest.config.js",
       "./jest.setup.ts",
-      "./webpack.config.ts",
       "./src",
       "./test"
    ],

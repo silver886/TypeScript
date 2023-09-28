@@ -15,7 +15,7 @@ import swaggerUI from 'swagger-ui-express';
 import {HeaderName} from './config';
 import swagger from './openapi/swagger.json'; // eslint-disable-line import/extensions
 import {RegisterRoutes as registerRoutes} from './routes/routes';
-import type {BasicRequest} from './models/common';
+import type {BasicRequest} from '@@models/common';
 import type {Express, NextFunction, Request, Response} from 'express';
 import type {Server} from 'http';
 import type {JsonObject} from 'swagger-ui-express';

@@ -9,7 +9,7 @@
    },
    "terminal.integrated.defaultProfile.linux": "zsh",
    "cSpell.enableFiletypes": ["shellscript"],
-   "cSpell.words": ["leasot", "openapi", "pnpm", "tsoa"],
+   "cSpell.words": ["leasot", "openapi", "outfile", "pnpm", "tsoa"],
    "prettier.requireConfig": true,
    "eslint.packageManager": "pnpm",
    "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
