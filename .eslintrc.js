@@ -14,9 +14,7 @@ module.exports = {
       'prettier',
    ],
    parser: '@typescript-eslint/parser',
-   plugins: [
-      'prettier',
-   ],
+   plugins: ['prettier'],
    rules: {
       // eslint-disable-next-line @typescript-eslint/naming-convention
       'prettier/prettier': 'error',

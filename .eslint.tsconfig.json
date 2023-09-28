@@ -7,9 +7,6 @@
       "./src",
       "./test"
    ],
-   "exclude": [
-      "node_modules",
-      "**/lambda"
-   ],
+   "exclude": ["node_modules", "**/lambda"],
    "extends": "./tsconfig.json"
 }

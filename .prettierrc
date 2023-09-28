@@ -15,11 +15,7 @@
    "multilineArraysWrapThreshold": 0,
    "overrides": [
       {
-         "files": [
-            "*.yaml",
-            "*.yml",
-            "*.md"
-         ],
+         "files": ["*.yaml", "*.yml", "*.md"],
          "options": {
             "tabWidth": 2
          }

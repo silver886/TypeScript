@@ -12,26 +12,14 @@ module.exports = {
    testEnvironment: 'node',
    clearMocks: true,
    collectCoverage: true,
-   coverageReporters: [
-      'json',
-      'lcov',
-      'clover',
-      'cobertura',
-      'text',
-   ],
+   coverageReporters: ['json', 'lcov', 'clover', 'cobertura', 'text'],
    coverageDirectory: 'jest-reports/cobertura',
    testRegex: [
       `${__dirname}(/src/(.*/)?__tests__/.*|/(test|src)/(.*/)?.*\\.(test|spec))\\.[jt]sx?$`,
    ],
-   coveragePathIgnorePatterns: [
-      '/node_modules/',
-   ],
-   testPathIgnorePatterns: [
-      '/node_modules/',
-   ],
-   watchPathIgnorePatterns: [
-      '/node_modules/',
-   ],
+   coveragePathIgnorePatterns: ['/node_modules/'],
+   testPathIgnorePatterns: ['/node_modules/'],
+   watchPathIgnorePatterns: ['/node_modules/'],
    reporters: [
       'default',
       [
@@ -42,7 +30,5 @@ module.exports = {
          },
       ],
    ],
-   setupFilesAfterEnv: [
-      '<rootDir>/jest.setup.ts',
-   ],
+   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };

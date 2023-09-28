@@ -30,32 +30,16 @@
       "moduleResolution": "node",
       "baseUrl": ".",
       "paths": {
-         "@@src/*": [
-            "src/*"
-         ],
-         "@@models/*": [
-            "src/models/*"
-         ],
-         "@@controllers/*": [
-            "src/controllers/*"
-         ],
-         "@@services/*": [
-            "src/services/*"
-         ],
-         "@@apis/*": [
-            "src/apis/*"
-         ],
-         "@@utils/*": [
-            "src/utils/*"
-         ]
+         "@@src/*": ["src/*"],
+         "@@models/*": ["src/models/*"],
+         "@@controllers/*": ["src/controllers/*"],
+         "@@services/*": ["src/services/*"],
+         "@@apis/*": ["src/apis/*"],
+         "@@utils/*": ["src/utils/*"]
       }
    },
    "ts-node": {
-      "require": [
-         "tsconfig-paths/register"
-      ]
+      "require": ["tsconfig-paths/register"]
    },
-   "include": [
-      "./src"
-   ]
+   "include": ["./src"]
 }

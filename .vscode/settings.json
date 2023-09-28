@@ -8,15 +8,8 @@
       "**/.pnpm-store/": true
    },
    "terminal.integrated.defaultProfile.linux": "zsh",
-   "cSpell.enableFiletypes": [
-      "shellscript"
-   ],
-   "cSpell.words": [
-      "leasot",
-      "openapi",
-      "pnpm",
-      "tsoa"
-   ],
+   "cSpell.enableFiletypes": ["shellscript"],
+   "cSpell.words": ["leasot", "openapi", "pnpm", "tsoa"],
    "prettier.requireConfig": true,
    "eslint.packageManager": "pnpm",
    "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
