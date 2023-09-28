@@ -24,11 +24,21 @@ const CONFIG = {
 };
 
 // Clear output directory.
-for await (const item of await promisify(readdir)(CONFIG.dest.dir)) {
-   await promisify(rm)(join(CONFIG.dest.dir, item), {
-      force: true,
-      recursive: true,
-   });
+try {
+   for await (const item of await promisify(readdir)(CONFIG.dest.dir)) {
+      await promisify(rm)(join(CONFIG.dest.dir, item), {
+         force: true,
+         recursive: true,
+      });
+   }
+} catch (err) {
+   if (
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      !('code' in (err as any)) ||
+      (err as {code?: string}).code !== 'ENOENT'
+   ) {
+      throw err;
+   }
 }
 
 // Build with esbuild.
