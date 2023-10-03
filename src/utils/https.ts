@@ -1,7 +1,7 @@
 /* eslint-disable import/no-nodejs-modules */
-import {request} from 'https';
+import {request} from 'node:https';
 import {ErrorContext} from '@silver886/error-context';
-import type {IncomingMessage} from 'http';
+import type {IncomingMessage} from 'node:http';
 
 export async function get(host: string, path?: string): Promise<string> {
    return new Promise((resolve, reject) => {

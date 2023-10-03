@@ -1,5 +1,5 @@
 /* eslint-disable import/no-nodejs-modules, import/max-dependencies */
-import http from 'http';
+import http from 'node:http';
 import {createId} from '@paralleldrive/cuid2';
 import {ErrorContext} from '@silver886/error-context';
 import {ValidateError} from '@tsoa/runtime';
@@ -17,7 +17,7 @@ import swagger from './openapi/swagger.json'; // eslint-disable-line import/exte
 import {RegisterRoutes as registerRoutes} from './routes/routes';
 import type {BasicRequest} from '@@models/common';
 import type {Express, NextFunction, Request, Response} from 'express';
-import type {Server} from 'http';
+import type {Server} from 'node:http';
 import type {JsonObject} from 'swagger-ui-express';
 
 // eslint-disable-next-line max-statements, max-lines-per-function

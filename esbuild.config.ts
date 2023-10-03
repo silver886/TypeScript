@@ -1,7 +1,7 @@
 /* eslint-disable import/no-nodejs-modules */
-import {cp, readdir, rm} from 'fs';
-import {join} from 'path';
-import {promisify} from 'util';
+import {cp, readdir, rm} from 'node:fs';
+import {join} from 'node:path';
+import {promisify} from 'node:util';
 import {build} from 'esbuild';
 
 const CONFIG = {

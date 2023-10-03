@@ -1,5 +1,5 @@
 /* eslint-disable import/no-nodejs-modules */
-import {env} from 'process';
+import {env} from 'node:process';
 import dotenv from 'dotenv';
 
 dotenv.config();

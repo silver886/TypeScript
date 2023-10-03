@@ -1,11 +1,11 @@
 /* eslint-disable import/no-nodejs-modules */
-import {env, exit} from 'process';
-import {inspect} from 'util';
+import {env, exit} from 'node:process';
+import {inspect} from 'node:util';
 import {configure} from '@vendia/serverless-express';
 import {ExitCode, HOST, PORT} from './config';
 import {APP, expressServer} from './expressServer';
-import type {Server} from 'http';
-import type {AddressInfo} from 'net';
+import type {Server} from 'node:http';
+import type {AddressInfo} from 'node:net';
 
 inspect.defaultOptions.depth = null;
 
