@@ -1,4 +1,4 @@
-/* eslint-disable import/no-nodejs-modules */
+/* eslint-disable import-x/no-nodejs-modules */
 import {env, exit} from 'node:process';
 import {inspect} from 'node:util';
 import {configure} from '@vendia/serverless-express';
@@ -15,8 +15,9 @@ let SERVERLESS_EXPRESS_INSTANCE: LambdaHandler | null = null;
 
 function setup(event: unknown, context: unknown): unknown {
    SERVERLESS_EXPRESS_INSTANCE = configure({
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       app: APP,
-   }) as unknown as LambdaHandler;
+   }) as LambdaHandler;
    // eslint-disable-next-line new-cap
    return SERVERLESS_EXPRESS_INSTANCE(event, context);
 }
@@ -70,7 +71,7 @@ if (env.NODE_ENV === 'local') {
             console.log(
                `Server (${APP.get('env') as string}) start listening on: ${
                   serverAddress.address
-               }:${serverAddress.port}`,
+               }:${serverAddress.port.toString()}`,
             );
          });
       } catch (err) {

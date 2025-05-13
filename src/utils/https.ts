@@ -1,4 +1,4 @@
-/* eslint-disable import/no-nodejs-modules */
+/* eslint-disable import-x/no-nodejs-modules */
 import {request} from 'node:https';
 import {ErrorContext} from '@silver886/error-context';
 import type {IncomingMessage} from 'node:http';

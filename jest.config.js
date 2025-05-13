@@ -1,7 +1,7 @@
-/* eslint-disable import/no-commonjs, import/unambiguous */
-// eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
+/* eslint-disable import-x/no-commonjs, import-x/unambiguous */
+// eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-require-imports
 const {pathsToModuleNameMapper} = require('ts-jest');
-// eslint-disable-next-line import/extensions, @typescript-eslint/naming-convention, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-require-imports, import-x/extensions
 const {compilerOptions} = require('./tsconfig.json');
 
 module.exports = {

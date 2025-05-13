@@ -1,4 +1,4 @@
-/* eslint-disable import/no-nodejs-modules, import/max-dependencies */
+/* eslint-disable import-x/no-nodejs-modules, import-x/max-dependencies */
 import http from 'node:http';
 import {createId} from '@paralleldrive/cuid2';
 import {ErrorContext} from '@silver886/error-context';
@@ -7,18 +7,22 @@ import bodyParser from 'body-parser';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import express, {Router as router} from 'express';
+import express, {
+   static as expressStatic,
+   json,
+   Router as router,
+   urlencoded,
+} from 'express';
 import helmet from 'helmet';
 import {StatusCodes} from 'http-status-codes';
 import {getAbsoluteFSPath} from 'swagger-ui-dist';
-import swaggerUI from 'swagger-ui-express';
+import {serve, setup} from 'swagger-ui-express';
 import {HeaderName} from './config';
-import swagger from './openapi/swagger.json'; // eslint-disable-line import/extensions
+import swagger from './openapi/swagger.json'; // eslint-disable-line import-x/extensions
 import {RegisterRoutes as registerRoutes} from './routes/routes';
 import type {BasicRequest} from '@@models/common';
 import type {Express, NextFunction, Request, Response} from 'express';
 import type {Server} from 'node:http';
-import type {JsonObject} from 'swagger-ui-express';
 
 // eslint-disable-next-line max-statements, max-lines-per-function
 export const APP = ((): Express => {
@@ -35,9 +39,9 @@ export const APP = ((): Express => {
       }),
    );
    app.use(bodyParser.text());
-   app.use(express.json());
+   app.use(json());
    app.use(
-      express.urlencoded({
+      urlencoded({
          extended: false,
       }),
    );
@@ -58,16 +62,10 @@ export const APP = ((): Express => {
       },
    );
 
-   app.use(express.static(getAbsoluteFSPath()));
+   app.use(expressStatic(getAbsoluteFSPath()));
 
    const routing = router();
-   routing.use(
-      '/api-doc',
-      swaggerUI.serve,
-      swaggerUI.setup(swagger as JsonObject, {
-         customCss: '.swagger-ui .curl-command {display:none;}',
-      }),
-   );
+   routing.use('/api-doc', serve, setup(swagger));
    registerRoutes(routing);
 
    app.use('/', routing);
@@ -78,32 +76,35 @@ export const APP = ((): Express => {
          req: Request,
          res: Response,
          next: NextFunction,
-         // eslint-disable-next-line @typescript-eslint/no-invalid-void-type, max-params, consistent-return
-      ): Response | void => {
+         // eslint-disable-next-line max-params
+      ): void => {
          if (err instanceof ValidateError) {
             // eslint-disable-next-line no-console
             console.error(`Caught Validation Error for ${req.path}:`, err);
-            return res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({
+            res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({
                message: 'Validation Failed',
                details: err.fields,
             });
+            return;
          }
 
          if (err instanceof ErrorContext) {
             // eslint-disable-next-line no-console
             console.error(`Caught Internal Server Error for ${req.path}:`, err);
-            return res.status(StatusCodes.SERVICE_UNAVAILABLE).json({
+            res.status(StatusCodes.SERVICE_UNAVAILABLE).json({
                requestId: err.context.requestId,
                message: 'Service Unavailable',
             });
+            return;
          }
 
          if (err instanceof Error) {
             // eslint-disable-next-line no-console
             console.error(`Caught Unknown Error for ${req.path}:`, err);
-            return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
                message: 'Internal Server Error',
             });
+            return;
          }
 
          next();
@@ -113,8 +114,8 @@ export const APP = ((): Express => {
    return app;
 })();
 
-// eslint-disable-next-line max-statements
 export function expressServer(): Server {
+   // eslint-disable-next-line @typescript-eslint/no-misused-promises
    const server = http.createServer(APP);
    return server;
 }

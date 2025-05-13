@@ -1,4 +1,4 @@
-/* eslint-disable import/no-namespace */
+/* eslint-disable import-x/no-namespace */
 import * as icanhaz from '@@apis/icanhaz';
 import {ping} from './ping';
 import type {PingRequestBody} from '@@models/ping';

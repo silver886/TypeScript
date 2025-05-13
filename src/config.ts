@@ -1,8 +1,8 @@
-/* eslint-disable import/no-nodejs-modules */
+/* eslint-disable import-x/no-nodejs-modules */
 import {env} from 'node:process';
-import dotenv from 'dotenv';
+import {config} from '@dotenvx/dotenvx';
 
-dotenv.config();
+config();
 
 export enum ExitCode {
    SIGINT_SERVER_CLOSE = 2,

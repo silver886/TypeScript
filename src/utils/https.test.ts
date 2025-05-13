@@ -1,4 +1,3 @@
-/* eslint-disable import/unambiguous */
 import {get} from './https';
 
 describe('get', () => {
@@ -20,9 +19,7 @@ describe('get', () => {
       const status = '300';
 
       // THEN
-      await expect(get(service, `/status/${status}`)).rejects.toThrowError(
-         status,
-      );
+      await expect(get(service, `/status/${status}`)).rejects.toThrow(status);
    });
 
    it('400', async () => {
@@ -30,9 +27,7 @@ describe('get', () => {
       const status = '400';
 
       // THEN
-      await expect(get(service, `/status/${status}`)).rejects.toThrowError(
-         status,
-      );
+      await expect(get(service, `/status/${status}`)).rejects.toThrow(status);
    });
 
    it('500', async () => {
@@ -40,8 +35,6 @@ describe('get', () => {
       const status = '500';
 
       // THEN
-      await expect(get(service, `/status/${status}`)).rejects.toThrowError(
-         status,
-      );
+      await expect(get(service, `/status/${status}`)).rejects.toThrow(status);
    });
 });

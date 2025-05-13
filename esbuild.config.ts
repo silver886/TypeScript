@@ -1,8 +1,7 @@
-/* eslint-disable import/no-nodejs-modules */
-import {cp, readdir, rm} from 'node:fs';
+/* eslint-disable import-x/no-nodejs-modules */
+import {cp, readdir, rm} from 'node:fs/promises';
 import {join} from 'node:path';
 import {argv} from 'node:process';
-import {promisify} from 'node:util';
 import {build} from 'esbuild';
 import yargs from 'yargs';
 
@@ -83,12 +82,14 @@ const CONFIG = {
 
 // Clear output directory.
 try {
-   for await (const item of await promisify(readdir)(CONFIG.dist.dir)) {
-      await promisify(rm)(join(CONFIG.dist.dir, item), {
-         force: true,
-         recursive: true,
-      });
-   }
+   await Promise.all(
+      (await readdir(CONFIG.dist.dir)).map(async (v) =>
+         rm(join(CONFIG.dist.dir, v), {
+            force: true,
+            recursive: true,
+         }),
+      ),
+   );
 } catch (err) {
    if (
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -108,16 +109,19 @@ await build({
 });
 
 // Copy assets.
-for await (const asset of CONFIG.assets) {
-   for await (const item of await promisify(readdir)(asset.src)) {
-      if (
-         asset.include.reduce((p, c) => p || c.test(item), false) &&
-         !asset.exclude.reduce((p, c) => p || c.test(item), false)
-      ) {
-         await promisify(cp)(
-            join(asset.src, item),
-            join(CONFIG.dist.dir, asset.dest, item),
-         );
-      }
-   }
-}
+await Promise.all(
+   CONFIG.assets.map(async (v) =>
+      (await readdir(v.src))
+         .map(async (w) => {
+            if (
+               v.include.reduce((p, c) => p || c.test(w), false) &&
+               !v.exclude.reduce((p, c) => p || c.test(w), false)
+            ) {
+               return cp(join(v.src, w), join(CONFIG.dist.dir, v.dest, w));
+            }
+            return null;
+         })
+         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+         .filter((w) => w !== null),
+   ),
+);

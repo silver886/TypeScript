@@ -1,4 +1,3 @@
-/* eslint-disable import/no-nodejs-modules */
 import {ErrorContext} from '@silver886/error-context';
 import {get} from '@@utils/https';
 
