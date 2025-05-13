@@ -2,6 +2,7 @@
    "name": "@silver886/TypeScript",
    "version": "0.0.0",
    "description": "TypeScript template",
+   "type": "module",
    "main": "./dist/index.js",
    "types": "./dist/index.d.ts",
    "scripts": {
@@ -16,7 +17,7 @@
       "prebuild": "npm run tsoa-gen",
       "build": "tsc",
       "prebundle": "npm run tsoa-gen",
-      "bundle": "ts-node --compilerOptions={\\\"module\\\":\\\"ESNext\\\"} --esm esbuild.config.ts",
+      "bundle": "tsx esbuild.config.ts",
       "prepublish": "npm run build",
       "prepublishOnly": "npm run test",
       "tsoa-gen": "tsoa spec-and-routes"
@@ -59,15 +60,14 @@
       "prettier": "^3.5.3",
       "prettier-plugin-multiline-arrays": "^4.0.3",
       "ts-jest": "^29.3.2",
-      "ts-node": "^10.9.2",
-      "tsconfig-paths": "^4.2.0",
+      "tsx": "^4.19.4",
       "typescript": "^5.8.3",
       "yargs": "^17.7.2"
    },
    "dependencies": {
       "@dotenvx/dotenvx": "^1.44.0",
       "@paralleldrive/cuid2": "^2.2.2",
-      "@silver886/error-context": "^0.0.2",
+      "@silver886/error-context": "^0.0.4",
       "@tsoa/runtime": "^6.6.0",
       "@vendia/serverless-express": "^4.12.6",
       "body-parser": "^2.2.0",

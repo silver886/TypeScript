@@ -31,7 +31,7 @@ const ARGS = await yargs(argv)
       type: 'string',
       desc: 'Path of distribution file, related to distribution directory',
       requiresArg: true,
-      default: 'index.js',
+      default: 'index.cjs',
    })
    .option('asset', {
       type: 'string',

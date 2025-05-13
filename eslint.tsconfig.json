@@ -1,11 +1,10 @@
 {
    "include": [
-      "./eslint.config.mjs",
+      "./eslint.config.js",
       "./esbuild.config.ts",
-      "./jest.config.js",
+      "./jest.config.ts",
       "./jest.setup.ts",
       "./src",
-      "./index.d.ts",
       "./test"
    ],
    "exclude": ["node_modules", "**/lambda"],

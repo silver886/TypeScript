@@ -1,14 +1,14 @@
 ###########################################################################
 # Build base image
 ###########################################################################
-FROM node:18-alpine AS base
+FROM node:22-alpine AS base
 
 COPY ./ /var/workdir/
 COPY .npmrc /usr/local/etc/npmrc
 
 WORKDIR /var/workdir/
 
-ENV PNPM_VERSION=7.28.0
+ENV PNPM_VERSION=10.10.0
 ENV PNPM_HOME=/usr/local/bin
 RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$(mktemp)" SHELL="$(which sh)" sh -s --
 

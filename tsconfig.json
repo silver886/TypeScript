@@ -1,11 +1,12 @@
 {
    "compilerOptions": {
-      "target": "ES2021",
-      "module": "CommonJS",
+      "target": "ESNext",
+      "module": "ESNext",
       "lib": [
-         "ES2021"
+         // "DOM",
+         "ESNext"
       ],
-      "outDir": "./dist", 
+      "outDir": "./dist", // Use `lib` for npm package.
       "alwaysStrict": true,
       "declaration": true,
       "experimentalDecorators": true,
@@ -36,12 +37,6 @@
          "@@apis/*": ["src/apis/*"],
          "@@utils/*": ["src/utils/*"]
       }
-   },
-   "ts-node": {
-      "moduleTypes": {
-         "*.ts": "esm"
-      },
-      "require": ["tsconfig-paths/register"]
    },
    "include": ["./src"]
 }

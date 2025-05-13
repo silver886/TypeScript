@@ -1,10 +1,20 @@
-/* eslint-disable import-x/no-commonjs, import-x/unambiguous */
-// eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-require-imports
-const {pathsToModuleNameMapper} = require('ts-jest');
-// eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-require-imports, import-x/extensions
-const {compilerOptions} = require('./tsconfig.json');
+/* eslint-disable import-x/no-nodejs-modules */
+import {readFileSync} from 'node:fs';
+import {join} from 'node:path';
+import {pathsToModuleNameMapper} from 'ts-jest';
+import type {MapLike} from 'typescript';
 
-module.exports = {
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const {compilerOptions} = JSON.parse(
+   readFileSync(join(__dirname, 'tsconfig.json'), 'utf-8'),
+) as {
+   compilerOptions: {
+      paths: MapLike<string[]>;
+   };
+};
+
+// eslint-disable-next-line import-x/no-anonymous-default-export
+export default {
    preset: 'ts-jest',
    moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',
