@@ -1,6 +1,6 @@
 # TypeScript
 
-This is Typescript template.
+This is TypeScript template.
 
 ## Content
 
@@ -27,17 +27,17 @@ Please follow the [setup instructions][^6] to configure Visual Studio Code.
 
 With Visual Studio Code setup, you will be prompted to open the repo in a Dev Container, or you can choose `Dev Containers: Reopen in Container` from the Visual Studio Code command palette.
 
-[^1]: https://docs.microsoft.com/en-us/windows/wsl/install
+[^1]: <https://docs.microsoft.com/en-us/windows/wsl/install>
 
-[^2]: https://docs.docker.com/install/#supported-platforms
+[^2]: <https://docs.docker.com/install/#supported-platforms>
 
-[^3]: https://code.visualstudio.com/
+[^3]: <https://code.visualstudio.com/>
 
-[^4]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
+[^4]: <https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers>
 
-[^5]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+[^5]: <https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack>
 
-[^6]: https://code.visualstudio.com/docs/remote/containers-tutorial
+[^6]: <https://code.visualstudio.com/docs/remote/containers-tutorial>
 
 ### Local Development
 
@@ -51,10 +51,10 @@ We recommend that you use [Visual Studio Code][^3] to work on the CDK.
 We use `prettier` and `eslint` to keep our code consistent in terms of style and reducing defects.
 We recommend installing the extensions for [prettier][^9] and [eslint][^10] as well.
 
-[^7]: https://nodejs.org/
+[^7]: <https://nodejs.org/>
 
-[^8]: https://pnpm.io/
+[^8]: <https://pnpm.io/>
 
-[^9]: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+[^9]: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
 
-[^10]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+[^10]: <https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint>
