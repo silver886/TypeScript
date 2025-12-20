@@ -17,7 +17,7 @@ import helmet from 'helmet';
 import {StatusCodes} from 'http-status-codes';
 import {getAbsoluteFSPath} from 'swagger-ui-dist';
 import {serve, setup} from 'swagger-ui-express';
-import {HeaderName} from './config';
+import {HEADER_NAME} from './config';
 import swagger from './openapi/swagger.json'; // eslint-disable-line import-x/extensions
 import {RegisterRoutes as registerRoutes} from './routes/routes';
 import type {BasicRequest} from '@@models/common';
@@ -56,7 +56,7 @@ export const APP = ((): Express => {
       ): void => {
          const id = createId();
          req.id = id;
-         res.append(HeaderName.REQUEST_ID, id);
+         res.append(HEADER_NAME.requestId, id);
 
          next();
       },

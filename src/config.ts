@@ -4,15 +4,15 @@ import {config} from '@dotenvx/dotenvx';
 
 config();
 
-export enum ExitCode {
-   SIGINT_SERVER_CLOSE = 2,
-   SIGINT_SERVER_CLOSE_FAIL = 3,
-   CRASH = 255,
-}
+export const EXIT_CODE = {
+   sigintServerClose: 2,
+   sigintServerCloseFail: 3,
+   crash: 255,
+} as const;
 
-export enum HeaderName {
-   REQUEST_ID = 'X-Request-ID',
-}
+export const HEADER_NAME = {
+   requestId: 'X-Request-ID',
+} as const;
 
 export const HOST = (env.HOST ?? '') || '127.0.0.1';
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers

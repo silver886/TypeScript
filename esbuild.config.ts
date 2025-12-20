@@ -6,9 +6,7 @@ import {build} from 'esbuild';
 import yargs from 'yargs';
 
 const ARGS = await yargs(argv)
-   .usage(
-      'Usage: ts-node --compilerOptions=\'{"module":"ESNext"}\' --esm esbuild.config.ts [flags]',
-   )
+   .usage('Usage: tsx esbuild.config.ts [flags]')
    .option('srcDir', {
       type: 'string',
       desc: 'Path of source code directory',

@@ -1,0 +1,8 @@
+autoInstallPeers: true
+
+enablePrePostScripts: true
+
+onlyBuiltDependencies:
+  - '@scarf/scarf'
+  - esbuild
+  - unrs-resolver

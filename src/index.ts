@@ -2,7 +2,7 @@
 import {env, exit} from 'node:process';
 import {inspect} from 'node:util';
 import {configure} from '@vendia/serverless-express';
-import {ExitCode, HOST, PORT} from './config';
+import {EXIT_CODE, HOST, PORT} from './config';
 import {APP, expressServer} from './expressServer';
 import type {Server} from 'node:http';
 import type {AddressInfo} from 'node:net';
@@ -51,13 +51,13 @@ if (env.NODE_ENV === 'local') {
                // eslint-disable-next-line no-console
                console.log('Server closed');
 
-               exit(ExitCode.SIGINT_SERVER_CLOSE);
+               exit(EXIT_CODE.sigintServerClose);
             } catch (error) {
                // eslint-disable-next-line no-console
                console.error(error);
                // eslint-disable-next-line no-console
                console.error('Server close failed');
-               exit(ExitCode.SIGINT_SERVER_CLOSE_FAIL);
+               exit(EXIT_CODE.sigintServerCloseFail);
             }
          });
       });
@@ -79,7 +79,7 @@ if (env.NODE_ENV === 'local') {
          console.error(err);
          // eslint-disable-next-line no-console
          console.error('Server crashed');
-         exit(ExitCode.CRASH);
+         exit(EXIT_CODE.crash);
       }
    })();
 }
